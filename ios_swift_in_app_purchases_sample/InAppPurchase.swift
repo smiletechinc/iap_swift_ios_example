@@ -24,10 +24,10 @@ class InAppPurchase : NSObject, SKProductsRequestDelegate, SKPaymentTransactionO
 	let kInAppProductRestoredNotification  = "InAppProductRestoredNotification"
 	let kInAppPurchasingErrorNotification  = "InAppPurchasingErrorNotification"
 	
-	let unlockTestInAppPurchase1ProductId = "com.testing.iap1"
-	let unlockTestInAppPurchase2ProductId = "com.testing.iap2"
-	let autorenewableSubscriptionProductId = "com.testing.autorenewablesubscription"
-	let nonrenewingSubscriptionProductId = "com.testing.nonrenewingsubscription"
+	let unlockTestInAppPurchase1ProductId = "com.trainify.trainifytennis.freetrial"
+	let unlockTestInAppPurchase2ProductId = "com.trainify.trainifytennis.basic"
+	let autorenewableSubscriptionProductId = "com.trainify.trainifytennis.silver"
+	let nonrenewingSubscriptionProductId = "com.trainify.trainifytennis.platinum"
 	
 	override init() {
 		super.init()
@@ -51,8 +51,10 @@ class InAppPurchase : NSObject, SKProductsRequestDelegate, SKPaymentTransactionO
 	}
 	
 	func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-		print("Got the request from Apple")
+        print("Got the request from Apple: ");
+        print(response.products);
 		let count: Int = response.products.count
+        print(response);
 		if count > 0 {
 			_ = response.products
 			let validProduct: SKProduct = response.products[0] 
